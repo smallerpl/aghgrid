@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='windows-1250'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="index.jsf" id="d1">
+        <af:form id="f1">
+            <af:panelGridLayout id="pgl1">
+                <af:gridRow height="50px" id="gr1">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1">
+                        <!-- Header -->
+                    </af:gridCell>
+                </af:gridRow>
+                <af:gridRow height="100%" id="gr2">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc2">
+                        <af:decorativeBox theme="dark" id="db1">
+                            <f:facet name="center">
+                                <af:decorativeBox theme="medium" id="db2">
+                                    <f:facet name="center">
+                                        <!-- Content -->
+                                    </f:facet>
+                                </af:decorativeBox>
+                            </f:facet>
+                        </af:decorativeBox>
+                    </af:gridCell>
+                </af:gridRow>
+            </af:panelGridLayout>
+        </af:form>
+    </af:document>
+    <!--oracle-jdev-comment:auto-binding-backing-bean-name:backing_index-->
+</f:view>
