@@ -6,6 +6,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
 import oracle.adf.view.rich.component.rich.layout.RichDecorativeBox;
+import oracle.adf.view.rich.component.rich.output.RichOutputText;
 
 @ManagedBean(name = "backing_index")
 @RequestScoped
@@ -13,6 +14,7 @@ import oracle.adf.view.rich.component.rich.layout.RichDecorativeBox;
 public class Index {
     private RichDecorativeBox db3;
     private RichDecorativeBox db4;
+    private RichOutputText ot1;
 
     public void setDb3(RichDecorativeBox db3) {
         this.db3 = db3;
@@ -28,5 +30,13 @@ public class Index {
 
     public RichDecorativeBox getDb4() {
         return db4;
+    }
+
+    public void setOt1(RichOutputText ot1) {
+        this.ot1 = ot1;
+    }
+
+    public RichOutputText getOt1() {
+        return ot1;
     }
 }

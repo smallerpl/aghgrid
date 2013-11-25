@@ -12,6 +12,7 @@
                                 <af:decorativeBox theme="medium" id="db2">
                                     <f:facet name="center">
                                         <!-- Content -->
+                                        <af:outputText value="Hello World!" id="ot1" binding="#{backing_index.ot1}"/>
                                     </f:facet>
                                 </af:decorativeBox>
                             </f:facet>
