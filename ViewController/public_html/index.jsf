@@ -7,14 +7,22 @@
             <af:panelGridLayout id="pgl1">
                 <af:gridRow height="50px" id="gr1">
                     <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1">
-                        <!-- Header -->
+                        <af:decorativeBox theme="dark" id="db1">
+                            <f:facet name="center">
+                                <af:decorativeBox theme="medium" id="db2">
+                                    <f:facet name="center">
+                                        <!-- Content -->
+                                    </f:facet>
+                                </af:decorativeBox>
+                            </f:facet>
+                        </af:decorativeBox>
                     </af:gridCell>
                 </af:gridRow>
                 <af:gridRow height="100%" id="gr2">
                     <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc2">
-                        <af:decorativeBox theme="dark" id="db1">
+                        <af:decorativeBox theme="dark" id="db3">
                             <f:facet name="center">
-                                <af:decorativeBox theme="medium" id="db2">
+                                <af:decorativeBox theme="medium" id="db4">
                                     <f:facet name="center">
                                         <!-- Content -->
                                     </f:facet>
