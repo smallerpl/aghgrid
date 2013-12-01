@@ -12,7 +12,7 @@
                                 <af:decorativeBox theme="medium" id="db2">
                                     <f:facet name="center">
                                         <!-- Content -->
-                                        <af:outputText value="Hello 3 World!" id="ot1" binding="#{backing_index.ot1}"/>
+                                        <af:outputText value="Hello World!" id="ot1" binding="#{backing_index.ot1}"/>
                                     </f:facet>
                                 </af:decorativeBox>
                             </f:facet>
@@ -26,11 +26,49 @@
                                 <af:decorativeBox theme="medium" id="db4">
                                     <f:facet name="center">
                                         <!-- Content -->
+                                        <af:panelGridLayout id="pgl2" binding="#{backing_index.pgl2}">
+                                            <af:gridRow marginTop="5px" height="35%" id="gr4"
+                                                        binding="#{backing_index.gr4}">
+                                                <af:gridCell marginStart="5px" width="25%" id="gc4"
+                                                             binding="#{backing_index.gc4}"/>
+                                                <af:gridCell marginStart="5px" width="50%" id="gc5"
+                                                             binding="#{backing_index.gc5}"/>
+                                                <af:gridCell marginStart="5px" width="25%" marginEnd="5px" id="gc6"
+                                                             binding="#{backing_index.gc6}"/>
+                                            </af:gridRow>
+                                            <af:gridRow marginTop="5px" height="30%" id="gr5"
+                                                        binding="#{backing_index.gr5}">
+                                                <af:gridCell marginStart="5px" width="25%" id="gc7"
+                                                             binding="#{backing_index.gc7}"/>
+                                                <af:gridCell marginStart="5px" width="50%" id="gc8"
+                                                             binding="#{backing_index.gc8}">
+                                                    <af:inputText label="Username" id="loginForm"
+                                                                  binding="#{backing_index.it2}"/>
+                                                    <af:inputText label="Password " id="passwordForm"
+                                                                  binding="#{backing_index.it1}"/>
+                                                    <af:button text="button 1" id="b1" binding="#{backing_index.b1}" actionListener="#{backing_loginBean.loginMainPage}" />
+                                                </af:gridCell>
+                                                <af:gridCell marginStart="5px" width="25%" marginEnd="5px" id="gc9"
+                                                             binding="#{backing_index.gc9}"/>
+                                            </af:gridRow>
+                                            <af:gridRow marginTop="5px" height="35%" marginBottom="5px" id="gr6"
+                                                        binding="#{backing_index.gr6}">
+                                                <af:gridCell marginStart="5px" width="25%" id="gc10"
+                                                             binding="#{backing_index.gc10}"/>
+                                                <af:gridCell marginStart="5px" width="50%" id="gc11"
+                                                             binding="#{backing_index.gc11}"/>
+                                                <af:gridCell marginStart="5px" width="25%" marginEnd="5px" id="gc12"
+                                                             binding="#{backing_index.gc12}"/>
+                                            </af:gridRow>
+                                        </af:panelGridLayout>
                                     </f:facet>
                                 </af:decorativeBox>
                             </f:facet>
                         </af:decorativeBox>
                     </af:gridCell>
+                </af:gridRow>
+                <af:gridRow id="gr3" binding="#{backing_index.gr3}">
+                    <af:gridCell id="gc3" binding="#{backing_index.gc3}"/>
                 </af:gridRow>
             </af:panelGridLayout>
         </af:form>

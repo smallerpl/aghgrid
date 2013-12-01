@@ -3,4 +3,12 @@
   <application>
     <default-render-kit-id>oracle.adf.rich</default-render-kit-id>
   </application>
+  <navigation-rule>
+    <from-view-id>/index.jsf</from-view-id>
+    <navigation-case>
+        <from-action>#{backing_loginBean.loginMainPage}</from-action>
+      <from-outcome>mainpage</from-outcome>
+      <to-view-id>/mainpage.jsf</to-view-id>
+    </navigation-case>
+  </navigation-rule>
 </faces-config>
