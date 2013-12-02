@@ -6,7 +6,17 @@
             <af:panelGridLayout id="pgl1">
                 <af:gridRow height="50px" id="gr1">
                     <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc2">
-                        <!-- Header -->
+                        <af:decorativeBox id="db3" binding="#{backing_mainpage.db3}" theme="dark">
+                            <f:facet name="center">
+                                <af:decorativeBox id="db4" binding="#{backing_mainpage.db4}" theme="medium">
+                                    <f:facet name="center">
+                                        <af:outputText value="MainPage" id="ot1" binding="#{backing_mainpage.ot1}"/>
+                                    </f:facet>
+                                    <f:facet name="top"/>
+                                </af:decorativeBox>
+                            </f:facet>
+                            <f:facet name="top"/>
+                        </af:decorativeBox>
                     </af:gridCell>
                 </af:gridRow>
                 <af:gridRow height="100%" id="gr2">

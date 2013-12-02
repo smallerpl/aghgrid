@@ -47,7 +47,7 @@
                                                                   binding="#{backing_index.it2}"/>
                                                     <af:inputText label="Password " id="passwordForm"
                                                                   binding="#{backing_index.it1}"/>
-                                                    <af:button text="Login" id="b1" binding="#{backing_index.b1}" actionListener="#{backing_index.loginMainPage}" />
+                                                    <af:button text="Login" id="b1" binding="#{backing_index.b1}" action="#{navigationController.goToMainPage}" />
                                                 </af:gridCell>
                                                 <af:gridCell marginStart="5px" width="25%" marginEnd="5px" id="gc9"
                                                              binding="#{backing_index.gc9}"/>
@@ -67,9 +67,6 @@
                             </f:facet>
                         </af:decorativeBox>
                     </af:gridCell>
-                </af:gridRow>
-                <af:gridRow id="gr3" binding="#{backing_index.gr3}">
-                    <af:gridCell id="gc3" binding="#{backing_index.gc3}"/>
                 </af:gridRow>
             </af:panelGridLayout>
         </af:form>
