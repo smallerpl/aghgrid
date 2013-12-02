@@ -43,10 +43,11 @@
                                                 <af:gridCell marginStart="5px" width="50%" id="gc8"
                                                              binding="#{backing_index.gc8}" halign="center"
                                                              valign="middle">
+                                                    <af:message id="m1" binding="#{backing_index.m1}"/>
                                                     <af:inputText label="Username" id="loginForm"
-                                                                  binding="#{backing_index.it2}"/>
-                                                    <af:inputText label="Password " id="passwordForm"
-                                                                  binding="#{backing_index.it1}"/>
+                                                                  binding="#{backing_index.it2}" value="#{navigationController.username}"/>
+                                                    <af:inputText secret="true" label="Password " id="passwordForm"
+                                                                  binding="#{backing_index.it1}" value="#{navigationController.password}"/>
                                                     <af:button text="Login" id="b1" binding="#{backing_index.b1}" action="#{navigationController.goToMainPage}" />
                                                 </af:gridCell>
                                                 <af:gridCell marginStart="5px" width="25%" marginEnd="5px" id="gc9"

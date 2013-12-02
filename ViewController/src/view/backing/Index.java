@@ -14,6 +14,7 @@ import oracle.adf.view.rich.component.rich.layout.RichGridRow;
 import oracle.adf.view.rich.component.rich.layout.RichPanelGridLayout;
 import oracle.adf.view.rich.component.rich.layout.RichPanelStretchLayout;
 import oracle.adf.view.rich.component.rich.nav.RichButton;
+import oracle.adf.view.rich.component.rich.output.RichMessage;
 import oracle.adf.view.rich.component.rich.output.RichOutputText;
 
 import oracle.adfinternal.view.faces.renderkit.rich.PanelGridLayoutRenderer;
@@ -51,6 +52,7 @@ public class Index {
     private RichInputText it1;
     private RichInputText it2;
     private RichButton b1;
+    private RichMessage m1;
 
     public void setDb3(RichDecorativeBox db3) {
         this.db3 = db3;
@@ -213,5 +215,13 @@ public class Index {
 
     public RichButton getB1() {
         return b1;
+    }
+
+    public void setM1(RichMessage m1) {
+        this.m1 = m1;
+    }
+
+    public RichMessage getM1() {
+        return m1;
     }
 }
