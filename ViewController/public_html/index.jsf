@@ -41,12 +41,13 @@
                                                 <af:gridCell marginStart="5px" width="25%" id="gc7"
                                                              binding="#{backing_index.gc7}"/>
                                                 <af:gridCell marginStart="5px" width="50%" id="gc8"
-                                                             binding="#{backing_index.gc8}">
+                                                             binding="#{backing_index.gc8}" halign="center"
+                                                             valign="middle">
                                                     <af:inputText label="Username" id="loginForm"
                                                                   binding="#{backing_index.it2}"/>
                                                     <af:inputText label="Password " id="passwordForm"
                                                                   binding="#{backing_index.it1}"/>
-                                                    <af:button text="button 1" id="b1" binding="#{backing_index.b1}" actionListener="#{backing_loginBean.loginMainPage}" />
+                                                    <af:button text="Login" id="b1" binding="#{backing_index.b1}" actionListener="#{backing_index.loginMainPage}" />
                                                 </af:gridCell>
                                                 <af:gridCell marginStart="5px" width="25%" marginEnd="5px" id="gc9"
                                                              binding="#{backing_index.gc9}"/>

@@ -5,6 +5,8 @@ import javax.annotation.Generated;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
+import javax.faces.event.ActionEvent;
+
 import oracle.adf.view.rich.component.rich.input.RichInputText;
 import oracle.adf.view.rich.component.rich.layout.RichDecorativeBox;
 import oracle.adf.view.rich.component.rich.layout.RichGridCell;
@@ -13,10 +15,13 @@ import oracle.adf.view.rich.component.rich.layout.RichPanelStretchLayout;
 import oracle.adf.view.rich.component.rich.nav.RichButton;
 import oracle.adf.view.rich.component.rich.output.RichOutputText;
 
+import oracle.adfinternal.view.faces.renderkit.rich.PanelGridLayoutRenderer;
+
 @ManagedBean(name = "backing_index")
 @RequestScoped
 @Generated(value = "1index.jsf", comments = "oracle-jdev-comment:managed-bean-jsp-link")
 public class Index {
+    private PanelGridLayoutRenderer pgl2;
     private RichDecorativeBox db3;
     private RichDecorativeBox db4;
     private RichOutputText ot1;
@@ -61,6 +66,15 @@ public class Index {
     public RichGridRow getGr3() {
         return gr3;
     }
+
+    public void setpgl2 (PanelGridLayoutRenderer pgl2) {
+        this.pgl2 = pgl2;
+    }
+
+    public PanelGridLayoutRenderer getpgl2() {
+        return pgl2;
+    }
+    
 
     public void setGc3(RichGridCell gc3) {
         this.gc3 = gc3;
@@ -127,5 +141,11 @@ public class Index {
 
     public RichButton getB1() {
         return b1;
+    }
+    
+
+    public String loginMainPage(ActionEvent actionEvent) {
+        //System.out.println("test");
+        return "mainpage";
     }
 }
