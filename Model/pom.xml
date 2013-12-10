@@ -20,6 +20,69 @@
       <type>pom</type>
       <scope>provided</scope>
     </dependency>
+    <dependency>
+      <groupId>com.oracle.adf.library</groupId>
+      <artifactId>ADF-Model-Runtime</artifactId>
+      <version>12.1.2-0-0</version>
+      <type>pom</type>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.oracle.adf.library</groupId>
+      <artifactId>ADF-Model-Generic-Runtime</artifactId>
+      <version>12.1.2-0-0</version>
+      <type>pom</type>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.oracle.adf.library</groupId>
+      <artifactId>BC4J-Runtime</artifactId>
+      <version>12.1.2-0-0</version>
+      <type>pom</type>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.oracle.adf.library</groupId>
+      <artifactId>MDS-Runtime</artifactId>
+      <version>12.1.2-0-0</version>
+      <type>pom</type>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.oracle.adf.library</groupId>
+      <artifactId>MDS-Runtime-Dependencies</artifactId>
+      <version>12.1.2-0-0</version>
+      <type>pom</type>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.oracle.adf.library</groupId>
+      <artifactId>BC4J-Security</artifactId>
+      <version>12.1.2-0-0</version>
+      <type>pom</type>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.oracle.adf.library</groupId>
+      <artifactId>Oracle-JDBC</artifactId>
+      <version>12.1.2-0-0</version>
+      <type>pom</type>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.oracle.adf.library</groupId>
+      <artifactId>BC4J-Oracle-Domains</artifactId>
+      <version>12.1.2-0-0</version>
+      <type>pom</type>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.oracle.adf.library</groupId>
+      <artifactId>Oracle-XML-Parser-v2</artifactId>
+      <version>12.1.2-0-0</version>
+      <type>pom</type>
+      <scope>provided</scope>
+    </dependency>
   </dependencies>
   <build>
     <sourceDirectory>src/</sourceDirectory>
@@ -28,6 +91,12 @@
         <directory>${basedir}</directory>
         <includes>
           <include>*</include>
+        </includes>
+      </resource>
+      <resource>
+        <directory>Application Sources/</directory>
+        <includes>
+          <include>**</include>
         </includes>
       </resource>
     </resources>

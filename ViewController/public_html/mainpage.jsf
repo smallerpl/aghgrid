@@ -6,11 +6,32 @@
             <af:panelGridLayout id="pgl1">
                 <af:gridRow height="50px" id="gr1">
                     <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc2">
-                        <af:decorativeBox id="db3" binding="#{backing_mainpage.db3}" theme="dark">
+                        <af:decorativeBox id="db3" theme="dark">
                             <f:facet name="center">
-                                <af:decorativeBox id="db4" binding="#{backing_mainpage.db4}" theme="medium">
+                                <af:decorativeBox id="db4" theme="medium">
                                     <f:facet name="center">
-                                        <af:outputText value="MainPage" id="ot1" binding="#{backing_mainpage.ot1}"/>
+                                        <af:panelGridLayout id="pgl2" binding="#{backing_mainpage.pgl2}">
+                                            <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr3"
+                                                        binding="#{backing_mainpage.gr3}">
+                                                <af:gridCell marginStart="5px" width="20%" id="gc4"
+                                                             binding="#{backing_mainpage.gc4}">
+                                                    <af:outputText value="Welcome, #{navigationController.username}"
+                                                                   id="ot1" binding="#{backing_mainpage.ot1}"/>
+                                                </af:gridCell>
+                                                <af:gridCell marginStart="5px" width="20%" id="gc5"
+                                                             binding="#{backing_mainpage.gc5}"/>
+                                                <af:gridCell marginStart="5px" width="20%" id="gc6"
+                                                             binding="#{backing_mainpage.gc6}"/>
+                                                <af:gridCell marginStart="5px" width="20%" id="gc7"
+                                                             binding="#{backing_mainpage.gc7}"/>
+                                                <af:gridCell marginStart="5px" width="100px" marginEnd="5px" id="gc8"
+                                                             binding="#{backing_mainpage.gc8}" halign="center"
+                                                             valign="middle">
+                                                    <af:button text="Logout" id="b1" binding="#{backing_mainpage.b1}"
+                                                               action="#{navigationController.logout}"/>
+                                                </af:gridCell>
+                                            </af:gridRow>
+                                        </af:panelGridLayout>
                                     </f:facet>
                                     <f:facet name="top"/>
                                 </af:decorativeBox>
