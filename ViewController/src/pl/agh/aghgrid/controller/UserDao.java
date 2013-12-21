@@ -6,17 +6,41 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import pl.agh.aghgrid.model.User;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.Query;
 
-import pl.agh.aghgrid.util.Database;
+import pl.agh.aghgrid.model.Users;
 
 public class UserDao {
-     private Connection connection;
+    private Connection connection;
 
+    private static final String PERSISTENCE_UNIT_NAME = "Model";
+    private static EntityManagerFactory factory;
+
+    public static boolean validate(String username, String password) {
+        boolean flag = false;
+        factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+        EntityManager em = factory.createEntityManager();
+        Query q = em.createQuery("SELECT u FROM Users u WHERE u.username = :login AND u.password = :pass");
+        q.setParameter("username", username);
+        q.setParameter("password", password);
+        try {
+            Users user = (Users) q.getSingleResult();
+            if (username.equalsIgnoreCase(user.getUsername()) && password.equals(user.getPassword())) {
+                flag = true;
+            }
+        } catch (Exception e) {
+            return false;
+        }
+
+        return flag;
+    }
     /* public UserDao() {
         connection = Database.getConnection();
     }
-    
+
     public void verifyUser(String username, String password) {
             try {
                 PreparedStatement ps = connection.prepareStatement("select username, password from users where username= ? and password= ?");

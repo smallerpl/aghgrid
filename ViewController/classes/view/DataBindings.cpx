@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.1.2.66.68" id="DataBindings"
+             SeparateXMLFiles="false" Package="view" ClientType="Generic">
+  <pageMap>
+    <page path="/testpage.jsf" usageId="view_testpagePageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="view_testpagePageDef" path="view.pageDefs.testpagePageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <dc id="SessionEJBBean1" path="pl.agh.aghgrid.model.SessionEJBBean1"/>
+  </dataControlUsages>
+</Application>

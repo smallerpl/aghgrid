@@ -161,6 +161,62 @@
       <type>pom</type>
       <scope>provided</scope>
     </dependency>
+    <dependency>
+      <groupId>com.oracle.adf.library</groupId>
+      <artifactId>ADF-Faces-Databinding-Runtime</artifactId>
+      <version>12.1.2-0-0</version>
+      <type>pom</type>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.oracle.adf.library</groupId>
+      <artifactId>ADF-Page-Flow-Runtime</artifactId>
+      <version>12.1.2-0-0</version>
+      <type>pom</type>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.oracle.adf.library</groupId>
+      <artifactId>ADF-Controller-Runtime</artifactId>
+      <version>12.1.2-0-0</version>
+      <type>pom</type>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.oracle.adf.library</groupId>
+      <artifactId>ADF-Controller-Schema</artifactId>
+      <version>12.1.2-0-0</version>
+      <type>pom</type>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.oracle.adf.library</groupId>
+      <artifactId>ADF-Web-Runtime</artifactId>
+      <version>12.1.2-0-0</version>
+      <type>pom</type>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.oracle.adf.library</groupId>
+      <artifactId>Commons-Beanutils</artifactId>
+      <version>12.1.2-0-0</version>
+      <type>pom</type>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.oracle.adf.library</groupId>
+      <artifactId>Commons-Logging</artifactId>
+      <version>12.1.2-0-0</version>
+      <type>pom</type>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.oracle.adf.library</groupId>
+      <artifactId>Commons-Collections</artifactId>
+      <version>12.1.2-0-0</version>
+      <type>pom</type>
+      <scope>compile</scope>
+    </dependency>
   </dependencies>
   <build>
     <sourceDirectory>src/</sourceDirectory>

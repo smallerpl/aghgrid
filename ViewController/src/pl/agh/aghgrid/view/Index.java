@@ -5,8 +5,6 @@ import javax.annotation.Generated;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
-import javax.faces.event.ActionEvent;
-
 import oracle.adf.view.rich.component.rich.input.RichInputText;
 import oracle.adf.view.rich.component.rich.layout.RichDecorativeBox;
 import oracle.adf.view.rich.component.rich.layout.RichGridCell;
@@ -16,8 +14,6 @@ import oracle.adf.view.rich.component.rich.layout.RichPanelStretchLayout;
 import oracle.adf.view.rich.component.rich.nav.RichButton;
 import oracle.adf.view.rich.component.rich.output.RichMessage;
 import oracle.adf.view.rich.component.rich.output.RichOutputText;
-
-import oracle.adfinternal.view.faces.renderkit.rich.PanelGridLayoutRenderer;
 
 @ManagedBean(name = "backing_index")
 @RequestScoped

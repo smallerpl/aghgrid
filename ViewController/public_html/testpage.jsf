@@ -1,0 +1,210 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="testpage.jsf" id="d1" binding="#{backing_testpage.d1}">
+        <af:messages id="m1" binding="#{backing_testpage.m1}"/>
+        <af:form id="f1" binding="#{backing_testpage.f1}">
+            <af:panelSplitter orientation="horizontal" splitterPosition="300" id="ps1"
+                              binding="#{backing_testpage.ps1}">
+                <f:facet name="first">
+                    <af:panelAccordion id="pa1" binding="#{backing_testpage.pa1}">
+                        <af:showDetailItem text="User" id="sdi1" binding="#{backing_testpage.sdi1}">
+                            <af:panelFormLayout id="pfl1" binding="#{backing_testpage.pfl1}">
+                                <af:inputText value="#{bindings.id.inputValue}" label="#{bindings.id.hints.label}"
+                                              required="#{bindings.id.hints.mandatory}"
+                                              columns="#{bindings.id.hints.displayWidth}"
+                                              maximumLength="#{bindings.id.hints.precision}"
+                                              shortDesc="#{bindings.id.hints.tooltip}" id="it1"
+                                              binding="#{backing_testpage.it1}">
+                                    <f:validator binding="#{bindings.id.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.password.inputValue}"
+                                              label="#{bindings.password.hints.label}"
+                                              required="#{bindings.password.hints.mandatory}"
+                                              columns="#{bindings.password.hints.displayWidth}"
+                                              maximumLength="#{bindings.password.hints.precision}"
+                                              shortDesc="#{bindings.password.hints.tooltip}" id="it2"
+                                              binding="#{backing_testpage.it2}">
+                                    <f:validator binding="#{bindings.password.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.username.inputValue}"
+                                              label="#{bindings.username.hints.label}"
+                                              required="#{bindings.username.hints.mandatory}"
+                                              columns="#{bindings.username.hints.displayWidth}"
+                                              maximumLength="#{bindings.username.hints.precision}"
+                                              shortDesc="#{bindings.username.hints.tooltip}" id="it3"
+                                              binding="#{backing_testpage.it3}">
+                                    <f:validator binding="#{bindings.username.validator}"/>
+                                </af:inputText>
+                                <f:facet name="footer">
+                                    <af:panelGroupLayout layout="horizontal" id="pgl1"
+                                                         binding="#{backing_testpage.pgl1}">
+                                        <af:button actionListener="#{bindings.First.execute}" text="First"
+                                                   disabled="#{!bindings.First.enabled}" partialSubmit="true" id="b1"
+                                                   binding="#{backing_testpage.b1}"/>
+                                        <af:button actionListener="#{bindings.Previous.execute}" text="Previous"
+                                                   disabled="#{!bindings.Previous.enabled}" partialSubmit="true"
+                                                   id="b2" binding="#{backing_testpage.b2}"/>
+                                        <af:button actionListener="#{bindings.Next.execute}" text="Next"
+                                                   disabled="#{!bindings.Next.enabled}" partialSubmit="true" id="b3"
+                                                   binding="#{backing_testpage.b3}"/>
+                                        <af:button actionListener="#{bindings.Last.execute}" text="Last"
+                                                   disabled="#{!bindings.Last.enabled}" partialSubmit="true" id="b4"
+                                                   binding="#{backing_testpage.b4}"/>
+                                    </af:panelGroupLayout>
+                                </f:facet>
+                            </af:panelFormLayout>
+                        </af:showDetailItem>
+                    </af:panelAccordion>
+                </f:facet>
+                <f:facet name="second">
+                    <af:panelSplitter id="ps2" binding="#{backing_testpage.ps2}" orientation="vertical">
+                        <f:facet name="first">
+                            <af:panelCollection id="pc1" binding="#{backing_testpage.pc1}">
+                                <f:facet name="menus"/>
+                                <f:facet name="toolbar"/>
+                                <af:table value="#{bindings.tasksList.collectionModel}" var="row"
+                                          rows="#{bindings.tasksList.rangeSize}"
+                                          emptyText="#{bindings.tasksList.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                          rowBandingInterval="0"
+                                          selectedRowKeys="#{bindings.tasksList.collectionModel.selectedRow}"
+                                          selectionListener="#{bindings.tasksList.collectionModel.makeCurrent}"
+                                          rowSelection="single" fetchSize="#{bindings.tasksList.rangeSize}"
+                                          filterModel="#{bindings.tasksListQuery.queryDescriptor}"
+                                          queryListener="#{bindings.tasksListQuery.processQuery}" filterVisible="true"
+                                          varStatus="vs" id="t1" binding="#{backing_testpage.t1}">
+                                    <af:column sortProperty="#{bindings.tasksList.hints.id.name}" filterable="true"
+                                               sortable="true" headerText="#{bindings.tasksList.hints.id.label}"
+                                               id="c1">
+                                        <af:outputText value="#{row.id}"
+                                                       shortDesc="#{bindings.tasksList.hints.id.tooltip}" id="ot3"/>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.tasksList.hints.request.name}" filterable="true"
+                                               sortable="true" headerText="#{bindings.tasksList.hints.request.label}"
+                                               id="c2">
+                                        <af:outputText value="#{row.request}"
+                                                       shortDesc="#{bindings.tasksList.hints.request.tooltip}"
+                                                       id="ot5"/>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.tasksList.hints.answer.name}" filterable="true"
+                                               sortable="true" headerText="#{bindings.tasksList.hints.answer.label}"
+                                               id="c3">
+                                        <af:outputText value="#{row.answer}"
+                                                       shortDesc="#{bindings.tasksList.hints.answer.tooltip}" id="ot4"/>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.tasksList.hints.sendtime.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.tasksList.hints.sendtime.label}" id="c4">
+                                        <af:outputText value="#{row.sendtime}"
+                                                       shortDesc="#{bindings.tasksList.hints.sendtime.tooltip}"
+                                                       id="ot6">
+                                            <af:convertDateTime pattern="#{bindings.tasksList.hints.sendtime.format}"/>
+                                        </af:outputText>
+                                        <f:facet name="filter">
+                                            <af:inputDate value="#{bindings.tasksListQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.sendtime.value}"
+                                                          id="id2">
+                                                <af:convertDateTime pattern="#{bindings.tasksList.hints.sendtime.format}"/>
+                                            </af:inputDate>
+                                        </f:facet>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.tasksList.hints.receivetime.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.tasksList.hints.receivetime.label}" id="c5">
+                                        <af:outputText value="#{row.receivetime}"
+                                                       shortDesc="#{bindings.tasksList.hints.receivetime.tooltip}"
+                                                       id="ot2">
+                                            <af:convertDateTime pattern="#{bindings.tasksList.hints.receivetime.format}"/>
+                                        </af:outputText>
+                                        <f:facet name="filter">
+                                            <af:inputDate value="#{bindings.tasksListQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.receivetime.value}"
+                                                          id="id1">
+                                                <af:convertDateTime pattern="#{bindings.tasksList.hints.receivetime.format}"/>
+                                            </af:inputDate>
+                                        </f:facet>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.tasksList.hints.workingtime.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.tasksList.hints.workingtime.label}" id="c6">
+                                        <af:outputText value="#{row.workingtime}"
+                                                       shortDesc="#{bindings.tasksList.hints.workingtime.tooltip}"
+                                                       id="ot1"/>
+                                    </af:column>
+                                </af:table>
+                                <f:facet name="statusbar"/>
+                            </af:panelCollection>
+                        </f:facet>
+                        <f:facet name="second">
+                            <af:panelTabbed id="pt1" binding="#{backing_testpage.pt1}">
+                                <af:showDetailItem text="Emp" id="sdi2"
+                                                   binding="#{backing_testpage.sdi2}">
+                                    <af:panelFormLayout id="pfl2" binding="#{backing_testpage.pfl2}">
+                                        <af:inputText value="#{bindings.id1.inputValue}"
+                                                      label="#{bindings.id1.hints.label}"
+                                                      required="#{bindings.id1.hints.mandatory}"
+                                                      columns="#{bindings.id1.hints.displayWidth}"
+                                                      maximumLength="#{bindings.id1.hints.precision}"
+                                                      shortDesc="#{bindings.id1.hints.tooltip}" id="it8"
+                                                      binding="#{backing_testpage.it8}">
+                                            <f:validator binding="#{bindings.id1.validator}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{bindings.request.inputValue}"
+                                                      label="#{bindings.request.hints.label}"
+                                                      required="#{bindings.request.hints.mandatory}"
+                                                      columns="#{bindings.request.hints.displayWidth}"
+                                                      maximumLength="#{bindings.request.hints.precision}"
+                                                      shortDesc="#{bindings.request.hints.tooltip}" id="it9"
+                                                      binding="#{backing_testpage.it9}">
+                                            <f:validator binding="#{bindings.request.validator}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{bindings.answer.inputValue}"
+                                                      label="#{bindings.answer.hints.label}"
+                                                      required="#{bindings.answer.hints.mandatory}"
+                                                      columns="#{bindings.answer.hints.displayWidth}"
+                                                      maximumLength="#{bindings.answer.hints.precision}"
+                                                      shortDesc="#{bindings.answer.hints.tooltip}" id="it10"
+                                                      binding="#{backing_testpage.it10}">
+                                            <f:validator binding="#{bindings.answer.validator}"/>
+                                        </af:inputText>
+                                        <af:inputDate value="#{bindings.sendtime.inputValue}"
+                                                      label="#{bindings.sendtime.hints.label}"
+                                                      required="#{bindings.sendtime.hints.mandatory}"
+                                                      columns="#{bindings.sendtime.hints.displayWidth}"
+                                                      shortDesc="#{bindings.sendtime.hints.tooltip}" id="id5"
+                                                      binding="#{backing_testpage.id5}">
+                                            <f:validator binding="#{bindings.sendtime.validator}"/>
+                                            <af:convertDateTime pattern="#{bindings.sendtime.format}"/>
+                                        </af:inputDate>
+                                        <af:inputDate value="#{bindings.receivetime.inputValue}"
+                                                      label="#{bindings.receivetime.hints.label}"
+                                                      required="#{bindings.receivetime.hints.mandatory}"
+                                                      columns="#{bindings.receivetime.hints.displayWidth}"
+                                                      shortDesc="#{bindings.receivetime.hints.tooltip}" id="id6"
+                                                      binding="#{backing_testpage.id6}">
+                                            <f:validator binding="#{bindings.receivetime.validator}"/>
+                                            <af:convertDateTime pattern="#{bindings.receivetime.format}"/>
+                                        </af:inputDate>
+                                        <af:inputText value="#{bindings.workingtime.inputValue}"
+                                                      label="#{bindings.workingtime.hints.label}"
+                                                      required="#{bindings.workingtime.hints.mandatory}"
+                                                      columns="#{bindings.workingtime.hints.displayWidth}"
+                                                      maximumLength="#{bindings.workingtime.hints.precision}"
+                                                      shortDesc="#{bindings.workingtime.hints.tooltip}" id="it11"
+                                                      binding="#{backing_testpage.it11}">
+                                            <f:validator binding="#{bindings.workingtime.validator}"/>
+                                        </af:inputText>
+                                        <f:facet name="footer">
+                                            <af:button text="Submit" id="b5" binding="#{backing_testpage.b5}"/>
+                                        </f:facet>
+                                    </af:panelFormLayout>
+                                </af:showDetailItem>
+                                <af:showDetailItem text="Graph" id="sdi3"
+                                                   binding="#{backing_testpage.sdi3}"/>
+                            </af:panelTabbed>
+                        </f:facet>
+                    </af:panelSplitter>
+                </f:facet>
+            </af:panelSplitter>
+        </af:form>
+    </af:document>
+    <!--oracle-jdev-comment:auto-binding-backing-bean-name:backing_testpage-->
+</f:view>

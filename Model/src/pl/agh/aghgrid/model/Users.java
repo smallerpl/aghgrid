@@ -14,7 +14,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@NamedQueries({ @NamedQuery(name = "Users.findAll", query = "select o from Users o") })
+@NamedQueries({ @NamedQuery(name = "Users.findAll", query = "select o from Users o"),
+                @NamedQuery(name = "Users.validateUser", query = "SELECT o FROM Users o WHERE o.username = :login AND o.password = :pass") 
+                })
 @Table(name = "\"users\"")
 public class Users implements Serializable {
     private static final long serialVersionUID = -3822314101388691285L;

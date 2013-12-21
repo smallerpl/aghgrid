@@ -1,19 +1,16 @@
 package pl.agh.aghgrid.view;
 
-import pl.agh.aghgrid.controller.Util;
+import java.io.Serializable;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
-import javax.faces.application.FacesMessage;
-
-import java.io.Serializable;
-
-import javax.faces.event.ActionEvent;
 
 import javax.servlet.http.HttpSession;
 
 import pl.agh.aghgrid.controller.UserDao;
+import pl.agh.aghgrid.controller.Util;
 
 @ManagedBean(name = "navigationController")
 @RequestScoped
@@ -50,7 +47,7 @@ public class NavigationController implements Serializable {
             // get Http Session and store username
             HttpSession session = Util.getSession();
             session.setAttribute("username", username);
-            return "mainpage";
+            return "testpage";
         } else {
             FacesContext.getCurrentInstance().addMessage(null,
                                                          new FacesMessage(FacesMessage.SEVERITY_WARN, "Invalid Login!",

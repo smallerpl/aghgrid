@@ -6,11 +6,7 @@ import javax.ejb.Local;
 
 @Local
 public interface SessionEJBLocal {
-    Object queryByRange(String jpqlStmt, int firstResult, int maxResults);
 
-    <T> T persistEntity(T entity);
-
-    <T> T mergeEntity(T entity);
 
     Users persistUsers(Users users);
 
@@ -19,6 +15,13 @@ public interface SessionEJBLocal {
     void removeUsers(Users users);
 
     List<Users> getUsersFindAll();
+
+
+    Object queryByRange(String jpqlStmt, int firstResult, int maxResults);
+
+    <T> T persistEntity(T entity);
+
+    <T> T mergeEntity(T entity);
 
     Tasks persistTasks(Tasks tasks);
 

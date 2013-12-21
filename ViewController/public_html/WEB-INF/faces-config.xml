@@ -6,8 +6,8 @@
   <navigation-rule>
     <from-view-id>/index.jsf</from-view-id>
     <navigation-case>
-      <from-outcome>mainpage</from-outcome>
-      <to-view-id>/mainpage.jsf</to-view-id>
+      <from-outcome>testpage</from-outcome>
+      <to-view-id>/testpage.jsf</to-view-id>
     </navigation-case>
   </navigation-rule>
 </faces-config>

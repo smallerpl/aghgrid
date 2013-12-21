@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.2.66.68" id="testpagePageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="SessionEJBBean1" id="SessionEJBBean1Iterator"
+              ChangeEventPolicy="ppr"/>
+    <accessorIterator MasterBinding="SessionEJBBean1Iterator" Binds="usersFindAll" RangeSize="25"
+                      DataControl="SessionEJBBean1" BeanClass="pl.agh.aghgrid.model.Users" id="usersFindAllIterator"
+                      ChangeEventPolicy="ppr"/>
+    <accessorIterator MasterBinding="usersFindAllIterator" Binds="tasksList" RangeSize="25"
+                      DataControl="SessionEJBBean1" BeanClass="pl.agh.aghgrid.model.Tasks" id="tasksListIterator"
+                      ChangeEventPolicy="ppr"/>
+    <searchRegion Binds="tasksListIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="tasksListQuery"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="usersFindAllIterator" id="id">
+      <AttrNames>
+        <Item Value="id"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="usersFindAllIterator" id="password">
+      <AttrNames>
+        <Item Value="password"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="usersFindAllIterator" id="username">
+      <AttrNames>
+        <Item Value="username"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="usersFindAllIterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="usersFindAllIterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="usersFindAllIterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="usersFindAllIterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <attributeValues IterBinding="tasksListIterator" id="answer">
+      <AttrNames>
+        <Item Value="answer"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="tasksListIterator" id="receivetime">
+      <AttrNames>
+        <Item Value="receivetime"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="tasksListIterator" id="request">
+      <AttrNames>
+        <Item Value="request"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="tasksListIterator" id="sendtime">
+      <AttrNames>
+        <Item Value="sendtime"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="tasksListIterator" id="workingtime">
+      <AttrNames>
+        <Item Value="workingtime"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="tasksListIterator" id="tasksList">
+      <nodeDefinition DefName="pl.agh.aghgrid.model.Tasks" Name="tasksList0">
+        <AttrNames>
+          <Item Value="id"/>
+          <Item Value="request"/>
+          <Item Value="answer"/>
+          <Item Value="sendtime"/>
+          <Item Value="receivetime"/>
+          <Item Value="workingtime"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="tasksListIterator" id="id1">
+      <AttrNames>
+        <Item Value="id"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>
