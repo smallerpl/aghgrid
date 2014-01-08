@@ -10,8 +10,11 @@ import oracle.adf.view.rich.component.rich.RichForm;
 import oracle.adf.view.rich.component.rich.data.RichTable;
 import oracle.adf.view.rich.component.rich.input.RichInputDate;
 import oracle.adf.view.rich.component.rich.input.RichInputText;
+import oracle.adf.view.rich.component.rich.layout.RichGridCell;
+import oracle.adf.view.rich.component.rich.layout.RichGridRow;
 import oracle.adf.view.rich.component.rich.layout.RichPanelAccordion;
 import oracle.adf.view.rich.component.rich.layout.RichPanelFormLayout;
+import oracle.adf.view.rich.component.rich.layout.RichPanelGridLayout;
 import oracle.adf.view.rich.component.rich.layout.RichPanelGroupLayout;
 import oracle.adf.view.rich.component.rich.layout.RichPanelSplitter;
 import oracle.adf.view.rich.component.rich.layout.RichPanelTabbed;
@@ -54,6 +57,11 @@ public class Testpage {
     private RichInputDate id6;
     private RichInputText it11;
     private RichButton b5;
+    private RichPanelGridLayout pgl2;
+    private RichGridRow gr1;
+    private RichGridCell gc1;
+    private RichGridRow gr2;
+    private RichGridCell gc2;
 
     public void setPs1(RichPanelSplitter ps1) {
         this.ps1 = ps1;
@@ -295,5 +303,45 @@ public class Testpage {
 
     public RichButton getB5() {
         return b5;
+    }
+
+    public void setPgl2(RichPanelGridLayout pgl2) {
+        this.pgl2 = pgl2;
+    }
+
+    public RichPanelGridLayout getPgl2() {
+        return pgl2;
+    }
+
+    public void setGr1(RichGridRow gr1) {
+        this.gr1 = gr1;
+    }
+
+    public RichGridRow getGr1() {
+        return gr1;
+    }
+
+    public void setGc1(RichGridCell gc1) {
+        this.gc1 = gc1;
+    }
+
+    public RichGridCell getGc1() {
+        return gc1;
+    }
+
+    public void setGr2(RichGridRow gr2) {
+        this.gr2 = gr2;
+    }
+
+    public RichGridRow getGr2() {
+        return gr2;
+    }
+
+    public void setGc2(RichGridCell gc2) {
+        this.gc2 = gc2;
+    }
+
+    public RichGridCell getGc2() {
+        return gc2;
     }
 }

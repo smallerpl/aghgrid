@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.2.66.68" id="mainPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <methodIterator Binds="persistTasks.result" DataControl="SessionEJBBean1" RangeSize="25"
+                    BeanClass="pl.agh.aghgrid.model.Tasks" id="persistTasksIterator"/>
+    <iterator Binds="root" RangeSize="25" DataControl="SessionEJBBean1" id="SessionEJBBean1Iterator"/>
+    <accessorIterator MasterBinding="SessionEJBBean1Iterator" Binds="tasksFindAll" RangeSize="25"
+                      DataControl="SessionEJBBean1" BeanClass="pl.agh.aghgrid.model.Tasks" id="tasksFindAllIterator"/>
+    <accessorIterator MasterBinding="tasksFindAllIterator" Binds="users" RangeSize="25" DataControl="SessionEJBBean1"
+                      BeanClass="pl.agh.aghgrid.model.Users" id="usersIterator"/>
+    <accessorIterator MasterBinding="usersIterator" Binds="tasksList" RangeSize="25" DataControl="SessionEJBBean1"
+                      BeanClass="pl.agh.aghgrid.model.Tasks" id="tasksListIterator"/>
+    <searchRegion Binds="tasksListIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="tasksListQuery"/>
+  </executables>
+  <bindings>
+    <methodAction id="persistTasks" RequiresUpdateModel="true" Action="invokeMethod" MethodName="persistTasks"
+                  IsViewObjectMethod="false" DataControl="SessionEJBBean1"
+                  InstanceName="data.SessionEJBBean1.dataProvider"
+                  ReturnName="data.SessionEJBBean1.methodResults.persistTasks_SessionEJBBean1_dataProvider_persistTasks_result">
+      <NamedData NDName="tasks" NDValue="#{bindings.tasksFindAllIterator.currentRow.dataProvider}"
+                 NDType="pl.agh.aghgrid.model.Tasks"/>
+    </methodAction>
+    <attributeValues IterBinding="persistTasksIterator" id="request">
+      <AttrNames>
+        <Item Value="request"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="tasksListIterator" id="tasksList">
+      <nodeDefinition DefName="pl.agh.aghgrid.model.Tasks" Name="tasksList0">
+        <AttrNames>
+          <Item Value="request"/>
+          <Item Value="sendtime"/>
+          <Item Value="answer"/>
+          <Item Value="receivetime"/>
+          <Item Value="workingtime"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

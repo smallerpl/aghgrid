@@ -3,9 +3,13 @@
              SeparateXMLFiles="false" Package="view" ClientType="Generic">
   <pageMap>
     <page path="/testpage.jsf" usageId="view_testpagePageDef"/>
+    <page path="/main.jsf" usageId="view_mainPageDef"/>
+    <page path="/newmain.jsf" usageId="view_newmainPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="view_testpagePageDef" path="view.pageDefs.testpagePageDef"/>
+    <page id="view_mainPageDef" path="view.pageDefs.mainPageDef"/>
+    <page id="view_newmainPageDef" path="view.pageDefs.newmainPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <dc id="SessionEJBBean1" path="pl.agh.aghgrid.model.SessionEJBBean1"/>

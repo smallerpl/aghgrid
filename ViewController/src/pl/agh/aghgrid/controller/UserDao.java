@@ -60,7 +60,7 @@ public class UserDao {
 
     public static boolean login(String username, String password) {
 
-
+        Integer id;
         Connection conn = null;
         PreparedStatement ps = null;
 
@@ -76,7 +76,7 @@ public class UserDao {
             if (conn != null) {
                 try {
                     ps =
-                        conn.prepareStatement("select username, password from users where username= ? and password= ? ");
+                        conn.prepareStatement("select id, username, password from users where username= ? and password= ? ");
                     ps.setString(1, username);
                     ps.setString(2, password);
                     System.out.println(ps.toString());
@@ -104,5 +104,5 @@ public class UserDao {
             }
         }
         return false;
-    }
+    }        
 }

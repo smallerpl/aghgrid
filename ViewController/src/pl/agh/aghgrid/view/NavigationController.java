@@ -47,7 +47,7 @@ public class NavigationController implements Serializable {
             // get Http Session and store username
             HttpSession session = Util.getSession();
             session.setAttribute("username", username);
-            return "testpage";
+            return "newmain";
         } else {
             FacesContext.getCurrentInstance().addMessage(null,
                                                          new FacesMessage(FacesMessage.SEVERITY_WARN, "Invalid Login!",

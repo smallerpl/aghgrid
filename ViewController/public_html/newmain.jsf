@@ -1,0 +1,230 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="newmain.jsf" id="d1" binding="#{backingBeanScope.backing_newmain2.d1}">
+        <af:messages id="m1" binding="#{backingBeanScope.backing_newmain2.m1}"/>
+        <af:form id="f1" binding="#{backingBeanScope.backing_newmain2.f1}">
+            <af:panelGridLayout id="pgl1" binding="#{backingBeanScope.backing_newmain2.pgl1}">
+                <af:gridRow height="50px" id="gr2" binding="#{backingBeanScope.backing_newmain2.gr2}">
+                    <af:gridCell width="100%" halign="end" id="gc2" binding="#{backingBeanScope.backing_newmain2.gc2}"
+                                 valign="middle" marginStart="20px" marginEnd="20px">
+                        <af:button text="Logout" id="b6" binding="#{backingBeanScope.backing_newmain2.b6}"
+                                   action="#{navigationController.logout}"/>
+                    </af:gridCell>
+                </af:gridRow>
+                <af:gridRow height="100%" id="gr1" binding="#{backingBeanScope.backing_newmain2.gr1}">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1"
+                                 binding="#{backingBeanScope.backing_newmain2.gc1}">
+                        <af:panelSplitter orientation="horizontal" splitterPosition="208" id="ps1"
+                                          binding="#{backingBeanScope.backing_newmain2.ps1}">
+                            <f:facet name="first">
+                                <!-- Left -->
+                                <af:panelAccordion id="pa1" binding="#{backingBeanScope.backing_newmain2.pa1}">
+                                    <af:showDetailItem text="User" id="sdi1"
+                                                       binding="#{backingBeanScope.backing_newmain2.sdi1}">
+                                        <af:panelFormLayout id="pfl1"
+                                                            binding="#{backingBeanScope.backing_newmain2.pfl1}">
+                                            <af:inputText value="#{bindings.username.inputValue}"
+                                                          label="#{bindings.username.hints.label}"
+                                                          required="#{bindings.username.hints.mandatory}"
+                                                          readOnly="true"
+                                                          columns="#{bindings.username.hints.displayWidth}"
+                                                          maximumLength="#{bindings.username.hints.precision}"
+                                                          shortDesc="#{bindings.username.hints.tooltip}" id="it1"
+                                                          binding="#{backingBeanScope.backing_newmain2.it1}">
+                                                <f:validator binding="#{bindings.username.validator}"/>
+                                            </af:inputText>
+                                            <f:facet name="footer">
+                                                <af:panelGroupLayout layout="horizontal" id="pgl2"
+                                                                     binding="#{backingBeanScope.backing_newmain2.pgl2}">
+                                                    <af:button actionListener="#{bindings.First.execute}" text="First"
+                                                               disabled="#{!bindings.First.enabled}"
+                                                               partialSubmit="true" id="b1"
+                                                               binding="#{backingBeanScope.backing_newmain2.b1}"/>
+                                                    <af:button actionListener="#{bindings.Previous.execute}"
+                                                               text="Previous" disabled="#{!bindings.Previous.enabled}"
+                                                               partialSubmit="true" id="b2"
+                                                               binding="#{backingBeanScope.backing_newmain2.b2}"/>
+                                                    <af:button actionListener="#{bindings.Next.execute}" text="Next"
+                                                               disabled="#{!bindings.Next.enabled}" partialSubmit="true"
+                                                               id="b3"
+                                                               binding="#{backingBeanScope.backing_newmain2.b3}"/>
+                                                    <af:button actionListener="#{bindings.Last.execute}" text="Last"
+                                                               disabled="#{!bindings.Last.enabled}" partialSubmit="true"
+                                                               id="b4"
+                                                               binding="#{backingBeanScope.backing_newmain2.b4}"/>
+                                                </af:panelGroupLayout>
+                                            </f:facet>
+                                        </af:panelFormLayout>
+                                    </af:showDetailItem>
+                                </af:panelAccordion>
+                            </f:facet>
+                            <f:facet name="second">
+                                <!-- Content -->
+                                <af:panelSplitter id="ps2" binding="#{backingBeanScope.backing_newmain2.ps2}"
+                                                  orientation="vertical">
+                                    <f:facet name="first">
+                                        <af:panelCollection id="pc1" binding="#{backingBeanScope.backing_newmain2.pc1}">
+                                            <f:facet name="menus"/>
+                                            <f:facet name="toolbar"/>
+                                            <af:table value="#{bindings.tasksList.collectionModel}" var="row"
+                                                      rows="#{bindings.tasksList.rangeSize}"
+                                                      emptyText="#{bindings.tasksList.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                      rowBandingInterval="0"
+                                                      selectedRowKeys="#{bindings.tasksList.collectionModel.selectedRow}"
+                                                      selectionListener="#{bindings.tasksList.collectionModel.makeCurrent}"
+                                                      rowSelection="single" fetchSize="#{bindings.tasksList.rangeSize}"
+                                                      filterModel="#{bindings.tasksListQuery.queryDescriptor}"
+                                                      queryListener="#{bindings.tasksListQuery.processQuery}"
+                                                      filterVisible="true" varStatus="vs" id="t1"
+                                                      binding="#{backingBeanScope.backing_newmain2.t1}"
+                                                      partialTriggers=":::b7 :::b10 :::b11 :::b12 :::b13 :::b14 :::b15">
+                                                <af:column sortProperty="#{bindings.tasksList.hints.request.name}"
+                                                           filterable="true" sortable="true"
+                                                           headerText="#{bindings.tasksList.hints.request.label}"
+                                                           id="c1">
+                                                    <af:outputText value="#{row.request}"
+                                                                   shortDesc="#{bindings.tasksList.hints.request.tooltip}"
+                                                                   id="ot1"/>
+                                                </af:column>
+                                                <af:column sortProperty="#{bindings.tasksList.hints.sendtime.name}"
+                                                           filterable="true" sortable="true"
+                                                           headerText="#{bindings.tasksList.hints.sendtime.label}"
+                                                           id="c2">
+                                                    <f:facet name="filter">
+                                                        <af:inputDate value="#{bindings.tasksListQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.sendtime.value}"
+                                                                      id="id1"
+                                                                      binding="#{backingBeanScope.backing_newmain2.id1}">
+                                                            <af:convertDateTime pattern="#{bindings.tasksList.hints.sendtime.format}"/>
+                                                        </af:inputDate>
+                                                    </f:facet>
+                                                    <af:outputText value="#{row.sendtime}"
+                                                                   shortDesc="#{bindings.tasksList.hints.sendtime.tooltip}"
+                                                                   id="ot2">
+                                                        <af:convertDateTime pattern="#{bindings.tasksList.hints.sendtime.format}"/>
+                                                    </af:outputText>
+                                                </af:column>
+                                                <af:column sortProperty="#{bindings.tasksList.hints.answer.name}"
+                                                           filterable="true" sortable="true"
+                                                           headerText="#{bindings.tasksList.hints.answer.label}"
+                                                           id="c3">
+                                                    <af:outputText value="#{row.answer}"
+                                                                   shortDesc="#{bindings.tasksList.hints.answer.tooltip}"
+                                                                   id="ot3"/>
+                                                </af:column>
+                                                <af:column sortProperty="#{bindings.tasksList.hints.receivetime.name}"
+                                                           filterable="true" sortable="true"
+                                                           headerText="#{bindings.tasksList.hints.receivetime.label}"
+                                                           id="c4">
+                                                    <f:facet name="filter">
+                                                        <af:inputDate value="#{bindings.tasksListQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.receivetime.value}"
+                                                                      id="id2"
+                                                                      binding="#{backingBeanScope.backing_newmain2.id2}">
+                                                            <af:convertDateTime pattern="#{bindings.tasksList.hints.receivetime.format}"/>
+                                                        </af:inputDate>
+                                                    </f:facet>
+                                                    <af:outputText value="#{row.receivetime}"
+                                                                   shortDesc="#{bindings.tasksList.hints.receivetime.tooltip}"
+                                                                   id="ot4">
+                                                        <af:convertDateTime pattern="#{bindings.tasksList.hints.receivetime.format}"/>
+                                                    </af:outputText>
+                                                </af:column>
+                                                <af:column sortProperty="#{bindings.tasksList.hints.workingtime.name}"
+                                                           filterable="true" sortable="true"
+                                                           headerText="#{bindings.tasksList.hints.workingtime.label}"
+                                                           id="c5">
+                                                    <af:outputText value="#{row.workingtime}"
+                                                                   shortDesc="#{bindings.tasksList.hints.workingtime.tooltip}"
+                                                                   id="ot5"/>
+                                                </af:column>
+                                            </af:table>
+                                            <f:facet name="statusbar"/>
+                                        </af:panelCollection>
+                                    </f:facet>
+                                    <f:facet name="second">
+                                        <af:panelGridLayout id="pgl3"
+                                                            binding="#{backingBeanScope.backing_newmain2.pgl3}">
+                                            <af:gridRow marginTop="5px" height="auto" id="gr3"
+                                                        binding="#{backingBeanScope.backing_newmain2.gr3}">
+                                                <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc3"
+                                                             binding="#{backingBeanScope.backing_newmain2.gc3}">
+                                                    <af:inputText label="New Request:" id="it2"
+                                                                  binding="#{backingBeanScope.backing_newmain2.it2}"
+                                                                  value="#{taskInsert.request}"/>
+                                                </af:gridCell>
+                                            </af:gridRow>
+                                            <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr4"
+                                                        binding="#{backingBeanScope.backing_newmain2.gr4}">
+                                                <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc4"
+                                                             binding="#{backingBeanScope.backing_newmain2.gc4}">
+                                                    <af:button text="Submit" id="b5"
+                                                               binding="#{backingBeanScope.backing_newmain2.b5}"
+                                                               action="#{taskInsert.insertTask}"/>
+                                                </af:gridCell>
+                                            </af:gridRow>
+                                            <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr7"
+                                                        binding="#{backingBeanScope.backing_newmain2.gr7}">
+                                                <af:gridCell marginStart="5px" width="50%" id="gc8"
+                                                             binding="#{backingBeanScope.backing_newmain2.gc8}">
+                                                    <af:panelFormLayout id="pfl3"
+                                                                        binding="#{backingBeanScope.backing_newmain2.pfl3}">
+                                                        <af:inputText value="#{bindings.request.inputValue}"
+                                                                      label="#{bindings.request.hints.label}"
+                                                                      required="#{bindings.request.hints.mandatory}"
+                                                                      columns="#{bindings.request.hints.displayWidth}"
+                                                                      maximumLength="#{bindings.request.hints.precision}"
+                                                                      shortDesc="#{bindings.request.hints.tooltip}"
+                                                                      id="it4"
+                                                                      binding="#{backingBeanScope.backing_newmain2.it4}">
+                                                            <f:validator binding="#{bindings.request.validator}"/>
+                                                        </af:inputText>
+                                                        <f:facet name="footer">
+                                                            <af:panelGroupLayout layout="horizontal" id="pgl4"
+                                                                                 binding="#{backingBeanScope.backing_newmain2.pgl4}">
+                                                                <af:button actionListener="#{bindings.First1.execute}"
+                                                                           text="First1"
+                                                                           disabled="#{!bindings.First1.enabled}"
+                                                                           partialSubmit="true" id="b12"
+                                                                           binding="#{backingBeanScope.backing_newmain2.b12}"/>
+                                                                <af:button actionListener="#{bindings.Create.execute}"
+                                                                           text="Create"
+                                                                           disabled="#{!bindings.Create.enabled}"
+                                                                           id="b7"
+                                                                           binding="#{backingBeanScope.backing_newmain2.b7}"/>
+                                                                <af:button actionListener="#{bindings.persistTasks.execute}"
+                                                                           text="Persist"
+                                                                           disabled="#{!bindings.persistTasks.enabled}"
+                                                                           id="b8"
+                                                                           binding="#{backingBeanScope.backing_newmain2.b8}"/>
+                                                                <af:button actionListener="#{bindings.Previous1.execute}"
+                                                                           text="Previous1"
+                                                                           disabled="#{!bindings.Previous1.enabled}"
+                                                                           partialSubmit="true" id="b13"
+                                                                           binding="#{backingBeanScope.backing_newmain2.b13}"/>
+                                                                <af:button actionListener="#{bindings.Next1.execute}"
+                                                                           text="Next1"
+                                                                           disabled="#{!bindings.Next1.enabled}"
+                                                                           partialSubmit="true" id="b14"
+                                                                           binding="#{backingBeanScope.backing_newmain2.b14}"/>
+                                                                <af:button actionListener="#{bindings.Last1.execute}"
+                                                                           text="Last1"
+                                                                           disabled="#{!bindings.Last1.enabled}"
+                                                                           partialSubmit="true" id="b15"
+                                                                           binding="#{backingBeanScope.backing_newmain2.b15}"/>
+                                                            </af:panelGroupLayout>
+                                                        </f:facet>
+                                                    </af:panelFormLayout>
+                                                </af:gridCell>
+                                            </af:gridRow>
+                                        </af:panelGridLayout>
+                                    </f:facet>
+                                </af:panelSplitter>
+                            </f:facet>
+                        </af:panelSplitter>
+                    </af:gridCell>
+                </af:gridRow>
+            </af:panelGridLayout>
+        </af:form>
+    </af:document>
+    <!--oracle-jdev-comment:auto-binding-backing-bean-name:backing_newmain2-->
+</f:view>

@@ -5,7 +5,6 @@
   <persistence-unit name="Model">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <jta-data-source>java:/app/jdbc/jdbc/AGHGrid-sqlDS</jta-data-source>
-    <class>pl.agh.aghgrid.model.Tasks</class>
     <properties>
       <property name="eclipselink.target-server" value="WebLogic_10"/>
       <property name="javax.persistence.jtaDataSource" value="java:/app/jdbc/jdbc/AGHGrid-sqlDS"/>

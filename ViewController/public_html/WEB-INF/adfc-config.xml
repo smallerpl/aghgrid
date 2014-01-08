@@ -1,2 +1,21 @@
 <?xml version="1.0" encoding="windows-1250" ?>
-<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2"></adfc-config>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <managed-bean id="__1">
+    <managed-bean-name>backing_main</managed-bean-name>
+    <managed-bean-class>view.backing.Main</managed-bean-class>
+    <managed-bean-scope>backingBean</managed-bean-scope>
+    <!--oracle-jdev-comment:managed-bean-jsp-link:1main.jsf-->
+  </managed-bean>
+  <managed-bean id="__2">
+    <managed-bean-name>backing_newmain</managed-bean-name>
+    <managed-bean-class>view.backing.Newmain</managed-bean-class>
+    <managed-bean-scope>backingBean</managed-bean-scope>
+    <!--oracle-jdev-comment:managed-bean-jsp-link:1newmain.jsf-->
+  </managed-bean>
+  <managed-bean id="__3">
+    <managed-bean-name>backing_newmain2</managed-bean-name>
+    <managed-bean-class>pl.agh.aghgrid.view.Newmain</managed-bean-class>
+    <managed-bean-scope>backingBean</managed-bean-scope>
+    <!--oracle-jdev-comment:managed-bean-jsp-link:1newmain.jsf-->
+  </managed-bean>
+</adfc-config>

@@ -1,5 +1,8 @@
 package pl.agh.aghgrid.model;
 
+import java.sql.Timestamp;
+
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -67,7 +70,15 @@ public class SessionEJBBean implements SessionEJB, SessionEJBLocal {
     }
 
     public Tasks persistTasks(Tasks tasks) {
-        em.persist(tasks);
+        // ActiveMQ
+        tasks.setSendtime(new Timestamp(new Date().getTime()));
+        boolean b = ActiveMQ.sendRequest(tasks);
+        //
+        if (b){
+            em.persist(tasks);
+        } else {
+            System.out.println("ActiveMQ error!");
+        }
         return tasks;
     }
 

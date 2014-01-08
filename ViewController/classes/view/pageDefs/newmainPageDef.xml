@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.2.66.68" id="newmainPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="SessionEJBBean1" id="SessionEJBBean1Iterator"
+              ChangeEventPolicy="ppr"/>
+    <accessorIterator MasterBinding="SessionEJBBean1Iterator" Binds="usersFindAll" RangeSize="25"
+                      DataControl="SessionEJBBean1" BeanClass="pl.agh.aghgrid.model.Users" id="usersFindAllIterator"
+                      ChangeEventPolicy="ppr"/>
+    <accessorIterator MasterBinding="usersFindAllIterator" Binds="tasksList" RangeSize="25"
+                      DataControl="SessionEJBBean1" BeanClass="pl.agh.aghgrid.model.Tasks" id="tasksListIterator"
+                      ChangeEventPolicy="ppr"/>
+    <searchRegion Binds="tasksListIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="tasksListQuery"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="usersFindAllIterator" id="username">
+      <AttrNames>
+        <Item Value="username"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="usersFindAllIterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="usersFindAllIterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="usersFindAllIterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="usersFindAllIterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <tree IterBinding="tasksListIterator" id="tasksList">
+      <nodeDefinition DefName="pl.agh.aghgrid.model.Tasks" Name="tasksList0">
+        <AttrNames>
+          <Item Value="request"/>
+          <Item Value="sendtime"/>
+          <Item Value="answer"/>
+          <Item Value="receivetime"/>
+          <Item Value="workingtime"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="tasksListIterator" id="request">
+      <AttrNames>
+        <Item Value="request"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="tasksListIterator" id="First1" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="tasksListIterator" id="Previous1" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="tasksListIterator" id="Next1" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="tasksListIterator" id="Last1" RequiresUpdateModel="true" Action="last"/>
+    <action IterBinding="tasksListIterator" id="Create" RequiresUpdateModel="true" Action="createRow"/>
+    <methodAction id="persistTasks" RequiresUpdateModel="true" Action="invokeMethod" MethodName="persistTasks"
+                  IsViewObjectMethod="false" DataControl="SessionEJBBean1"
+                  InstanceName="data.SessionEJBBean1.dataProvider"
+                  ReturnName="data.SessionEJBBean1.methodResults.persistTasks_SessionEJBBean1_dataProvider_persistTasks_result">
+      <NamedData NDName="tasks" NDValue="#{bindings.tasksListIterator.currentRow.dataProvider}"
+                 NDType="pl.agh.aghgrid.model.Tasks"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

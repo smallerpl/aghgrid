@@ -1,0 +1,117 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="main.jsf" id="d1" binding="#{backingBeanScope.backing_main.d1}">
+        <af:messages id="m1" binding="#{backingBeanScope.backing_main.m1}"/>
+        <af:form id="f1" binding="#{backingBeanScope.backing_main.f1}">
+            <af:panelGridLayout id="pgl1" binding="#{backingBeanScope.backing_main.pgl1}">
+                <af:gridRow height="50px" id="gr2" binding="#{backingBeanScope.backing_main.gr2}">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc2"
+                                 binding="#{backingBeanScope.backing_main.gc2}">
+                        <af:panelGroupLayout id="pgl2" binding="#{backingBeanScope.backing_main.pgl2}"
+                                             layout="horizontal">
+                            <af:outputText value="Welcome" id="ot7" binding="#{backingBeanScope.backing_main.ot7}"/>
+                        </af:panelGroupLayout>
+                        <af:button text="Logout" id="b2" binding="#{backingBeanScope.backing_main.b2}" action="#{navigationController.logout}"/>
+                    </af:gridCell>
+                </af:gridRow>
+                <af:gridRow height="100%" id="gr1" binding="#{backingBeanScope.backing_main.gr1}">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1"
+                                 binding="#{backingBeanScope.backing_main.gc1}">
+                        <!-- Content -->
+                        <af:panelSplitter id="ps1" binding="#{backingBeanScope.backing_main.ps1}"
+                                          orientation="vertical">
+                            <f:facet name="first">
+                                <af:panelCollection id="pc1" binding="#{backingBeanScope.backing_main.pc1}">
+                                    <f:facet name="menus"/>
+                                    <f:facet name="toolbar"/>
+                                    <af:table value="#{bindings.tasksList.collectionModel}" var="row"
+                                              rows="#{bindings.tasksList.rangeSize}"
+                                              emptyText="#{bindings.tasksList.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                              rowBandingInterval="0"
+                                              selectedRowKeys="#{bindings.tasksList.collectionModel.selectedRow}"
+                                              selectionListener="#{bindings.tasksList.collectionModel.makeCurrent}"
+                                              rowSelection="single" fetchSize="#{bindings.tasksList.rangeSize}"
+                                              filterModel="#{bindings.tasksListQuery.queryDescriptor}"
+                                              queryListener="#{bindings.tasksListQuery.processQuery}"
+                                              filterVisible="true" varStatus="vs" id="t1"
+                                              binding="#{backingBeanScope.backing_main.t1}">
+                                        <af:column sortProperty="#{bindings.tasksList.hints.request.name}"
+                                                   filterable="true" sortable="true"
+                                                   headerText="#{bindings.tasksList.hints.request.label}" id="c1">
+                                            <af:outputText value="#{row.request}"
+                                                           shortDesc="#{bindings.tasksList.hints.request.tooltip}"
+                                                           id="ot1"/>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.tasksList.hints.sendtime.name}"
+                                                   filterable="true" sortable="true"
+                                                   headerText="#{bindings.tasksList.hints.sendtime.label}" id="c2">
+                                            <f:facet name="filter">
+                                                <af:inputDate value="#{bindings.tasksListQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.sendtime.value}"
+                                                              id="id1" binding="#{backingBeanScope.backing_main.id1}">
+                                                    <af:convertDateTime pattern="#{bindings.tasksList.hints.sendtime.format}"/>
+                                                </af:inputDate>
+                                            </f:facet>
+                                            <af:outputText value="#{row.sendtime}"
+                                                           shortDesc="#{bindings.tasksList.hints.sendtime.tooltip}"
+                                                           id="ot2">
+                                                <af:convertDateTime pattern="#{bindings.tasksList.hints.sendtime.format}"/>
+                                            </af:outputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.tasksList.hints.answer.name}"
+                                                   filterable="true" sortable="true"
+                                                   headerText="#{bindings.tasksList.hints.answer.label}" id="c3">
+                                            <af:outputText value="#{row.answer}"
+                                                           shortDesc="#{bindings.tasksList.hints.answer.tooltip}"
+                                                           id="ot3"/>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.tasksList.hints.receivetime.name}"
+                                                   filterable="true" sortable="true"
+                                                   headerText="#{bindings.tasksList.hints.receivetime.label}" id="c4">
+                                            <f:facet name="filter">
+                                                <af:inputDate value="#{bindings.tasksListQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.receivetime.value}"
+                                                              id="id2" binding="#{backingBeanScope.backing_main.id2}">
+                                                    <af:convertDateTime pattern="#{bindings.tasksList.hints.receivetime.format}"/>
+                                                </af:inputDate>
+                                            </f:facet>
+                                            <af:outputText value="#{row.receivetime}"
+                                                           shortDesc="#{bindings.tasksList.hints.receivetime.tooltip}"
+                                                           id="ot4">
+                                                <af:convertDateTime pattern="#{bindings.tasksList.hints.receivetime.format}"/>
+                                            </af:outputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.tasksList.hints.workingtime.name}"
+                                                   filterable="true" sortable="true"
+                                                   headerText="#{bindings.tasksList.hints.workingtime.label}" id="c5">
+                                            <af:outputText value="#{row.workingtime}"
+                                                           shortDesc="#{bindings.tasksList.hints.workingtime.tooltip}"
+                                                           id="ot5"/>
+                                        </af:column>
+                                    </af:table>
+                                    <f:facet name="statusbar"/>
+                                </af:panelCollection>
+                            </f:facet>
+                            <f:facet name="second">
+                                <af:panelFormLayout id="pfl1" binding="#{backingBeanScope.backing_main.pfl1}">
+                                    <af:inputText value="#{bindings.request.inputValue}"
+                                                  label="#{bindings.request.hints.label}"
+                                                  required="#{bindings.request.hints.mandatory}"
+                                                  columns="#{bindings.request.hints.displayWidth}"
+                                                  maximumLength="#{bindings.request.hints.precision}"
+                                                  shortDesc="#{bindings.request.hints.tooltip}" id="it1"
+                                                  binding="#{backingBeanScope.backing_main.it1}">
+                                        <f:validator binding="#{bindings.request.validator}"/>
+                                    </af:inputText>
+                                    <f:facet name="footer">
+                                        <af:button text="Submit" id="b1" binding="#{backingBeanScope.backing_main.b1}"/>
+                                    </f:facet>
+                                </af:panelFormLayout>
+                            </f:facet>
+                        </af:panelSplitter>
+                    </af:gridCell>
+                </af:gridRow>
+            </af:panelGridLayout>
+        </af:form>
+    </af:document>
+    <!--oracle-jdev-comment:auto-binding-backing-bean-name:backing_main-->
+</f:view>
